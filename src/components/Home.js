@@ -16,7 +16,7 @@ class Home extends Component {
 
         <div className='wrap-content'>
           <div className='content-container'>
-            <h2>All Posts</h2>
+            <h3>All Posts</h3>
             <PostList postsIds={this.props.postsIds} />
           </div>
         </div>

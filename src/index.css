@@ -74,9 +74,10 @@ h6,
 }
 
 .wrap-content {
-  max-width: 1024px;
+  max-width: 960px;
   min-width: 320px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 .button {
@@ -92,11 +93,20 @@ h1 {
   border-bottom: 1px solid rgba(255, 255, 255, .5);
 }
 h2 {
-  padding: 0 0 20px;
+  padding: 0 0 10px;
   font-size: 32px;
+  color: #666;
+  font-weight: bold;
+}
+h3 {
+  padding: 0 0 20px;
+  margin: 0 0 20px;
+  font-size: 18px;
+  font-weight: bold;
   text-align: center;
   text-transform: uppercase;
   color: #666;
+  border-bottom: 1px solid #666;
 }
 
 /* Header */
@@ -126,7 +136,61 @@ nav a:hover {
 
 /* Content */
 .content-container {
-  padding: 40px 0;
+  padding: 20px 0;
+}
+
+/* Post List Item */
+.post-list-item {
+  margin: 0 0 20px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+.post-list-item h2 {
+}
+.post-list-item-info {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: #666;
+}
+.post-list-item-info span {
+  display: inline-block;
+  margin: 0 10px 10px;
+}
+
+.post-list-item-score {
+  display: inline-block;
+  background: #03A9F4;
+  color: #fff;
+  font-weight: bold;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 30px;
+  position: relative;
+}
+.post-list-item-vote {
+  display: inline-block;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 30px;
+  padding: 0 20px;
+}
+.post-list-item-vote-up {
+  margin: 0 -20px 0 0;
+  padding-right: 33px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background: #8BC34A;
+}
+.post-list-item-vote-down {
+  margin: 0 0 0 -20px;
+  padding-left: 33px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background: #F44336;
 }
 
 /* Footer */
