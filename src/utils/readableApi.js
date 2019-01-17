@@ -24,10 +24,22 @@ export const getHomeData = () => Promise.all([
   categories,
 }))
 
+export const getCategoryData = (categoryPath) => Promise.all([
+  getAllPostsByCategory(categoryPath),
+  getAllCategories(),
+]).then(([posts, categories]) => ({
+  posts,
+  categories,
+}))
+
 export const getAllCategories = () => fetch(`${api}/categories`, { headers })
   .then(res => res.json())
   .then(data => normalizeObjectBy('path', data.categories))
 
 export const getAllPosts = () => fetch(`${api}/posts`, { headers })
+  .then(res => res.json())
+  .then(data => normalizeObjectBy('id', data))
+
+  export const getAllPostsByCategory = (categoryPath) => fetch(`${api}/${categoryPath}/posts`, { headers })
   .then(res => res.json())
   .then(data => normalizeObjectBy('id', data))

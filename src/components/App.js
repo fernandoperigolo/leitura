@@ -13,7 +13,7 @@ class App extends Component {
       <Router>
         <Fragment>
           <Switch>
-            <Route path='/category/:id' exact component={Category} />
+            <Route path='/category/:categoryPath' exact component={Category} />
             <Route path='/post/new' exact component={PostNew} />
             <Route path='/post/edit/:id' exact component={PostEdit} />
             <Route path='/post/:id' exact component={Post} />
