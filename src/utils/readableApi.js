@@ -40,6 +40,15 @@ export const getAllPosts = () => fetch(`${api}/posts`, { headers })
   .then(res => res.json())
   .then(data => normalizeObjectBy('id', data))
 
-  export const getAllPostsByCategory = (categoryPath) => fetch(`${api}/${categoryPath}/posts`, { headers })
+export const getAllPostsByCategory = (categoryPath) => fetch(`${api}/${categoryPath}/posts`, { headers })
   .then(res => res.json())
   .then(data => normalizeObjectBy('id', data))
+
+export const addPost = (postData) => fetch(`${api}/posts`, {
+    headers,
+    method: 'POST',
+    body: JSON.stringify(postData)
+  })
+  .then(res => res.json())
+  .then(data => data)
+  .catch(error => console.log(error))

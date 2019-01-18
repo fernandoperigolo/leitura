@@ -1,15 +1,31 @@
 import React, { Component, Fragment } from 'react'
 import PostForm from './PostForm'
+import Header from './Header'
+import Footer from './Footer'
+import { connect } from 'react-redux'
+import { handlePostNewData } from '../actions/views'
 
-class PostEdit extends Component {
+class PostNew extends Component {
+  componentDidMount() {
+    this.props.dispatch(handlePostNewData())
+  }
   render() {
+    console.log('this.props ', this.props)
     return (
       <Fragment>
-        <h2>Create a New Post</h2>
-        <PostForm />
+        <Header />
+
+        <div className='wrap-content'>
+          <div className='content-container'>
+            <h3>Create a New Post</h3>
+            <PostForm />
+          </div>
+        </div>
+
+        <Footer />
       </Fragment>
     )
   }
 }
 
-export default PostEdit
+export default connect()(PostNew)

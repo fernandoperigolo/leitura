@@ -80,10 +80,6 @@ h6,
   padding: 0 10px;
 }
 
-.button {
-  background: #5ffbf1;
-}
-
 h1 {
   padding: 40px 0;
   font-size: 72px;
@@ -107,6 +103,79 @@ h3 {
   text-transform: uppercase;
   color: #666;
   border-bottom: 1px solid #666;
+}
+
+form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+form label {
+  display: inline-block;
+  margin: 0 0 5px;
+}
+
+form p {
+  margin: 0 0 15px;
+}
+
+input[type=text],
+input[type=date],
+input[type=datetime],
+input[type=number],
+input[type=search],
+input[type=time],
+input[type=url],
+input[type=email],
+textarea,
+select{
+  display: block;
+  width: 100%;
+	box-sizing: border-box;
+  border:1px solid #BEBEBE;
+  background: #fff;
+	padding: 7px 11px;
+	margin: 0px;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border-radius: 4px;
+  appearance: none;
+  font-size: 14px;
+  line-height: 26px;
+  font-family: 'Open Sans', sans-serif;
+}
+input[type=text]:focus,
+input[type=date]:focus,
+input[type=datetime]:focus,
+input[type=number]:focus,
+input[type=search]:focus,
+input[type=time]:focus,
+input[type=url]:focus,
+input[type=email]:focus,
+textarea:focus,
+select:focus{
+	-moz-box-shadow: 0 0 8px #88D5E9;
+	-webkit-box-shadow: 0 0 8px #88D5E9;
+	box-shadow: 0 0 8px #88D5E9;
+	border: 1px solid #88D5E9;
+}
+textarea {
+  height: 250px;
+}
+
+.button {
+  background: #9a9ae1;
+  border: none;
+  line-height: 40px;
+  padding: 0 20px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 /* Header */
