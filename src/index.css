@@ -94,6 +94,9 @@ h2 {
   color: #666;
   font-weight: bold;
 }
+h2 a {
+  color: inherit;
+}
 h3 {
   padding: 0 0 20px;
   margin: 0 0 20px;
@@ -209,26 +212,28 @@ nav a:hover {
 }
 
 /* Post List Item */
-.post-list-item {
+.post {
   margin: 0 0 20px;
   padding: 0 0 20px;
   border-bottom: 1px solid #ccc;
   text-align: center;
 }
 
-.post-list-item h2 {
-}
-.post-list-item-info {
+.post-info {
   margin: 0 0 10px;
   font-size: 12px;
   color: #666;
 }
-.post-list-item-info span {
+.post-info span {
   display: inline-block;
   margin: 0 10px 10px;
 }
-
-.post-list-item-score {
+.post-content {
+  margin: 30px 50px 20px;
+  text-align: left;
+  line-height: 26px;
+}
+.post-score {
   display: inline-block;
   background: #03A9F4;
   color: #fff;
@@ -239,7 +244,7 @@ nav a:hover {
   border-radius: 30px;
   position: relative;
 }
-.post-list-item-vote {
+.post-vote {
   display: inline-block;
   color: #fff;
   height: 30px;
@@ -247,14 +252,14 @@ nav a:hover {
   border-radius: 30px;
   padding: 0 20px;
 }
-.post-list-item-vote-up {
+.post-vote-up {
   margin: 0 -20px 0 0;
   padding-right: 33px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   background: #8BC34A;
 }
-.post-list-item-vote-down {
+.post-vote-down {
   margin: 0 0 0 -20px;
   padding-left: 33px;
   border-top-left-radius: 0;
