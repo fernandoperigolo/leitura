@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import CommentVoteScore from './CommentVoteScore'
 
 class CommentList extends Component {
   render() {
@@ -12,11 +13,7 @@ class CommentList extends Component {
               <div key={this.props.comments[comment].id} className='comment-list-item'>
                 <p className='comment-list-body'>{this.props.comments[comment].body}</p>
                 <p className='comment-list-author'>By: {this.props.comments[comment].author}</p>
-                <div className='comment-list-votescore'>
-                  <a href='#' className='comment-list-vote comment-list-vote-up'>Vote Up</a>
-                  <span className='comment-list-score'>{this.props.comments[comment].voteScore}</span>
-                  <a href='#' className='comment-list-vote comment-list-vote-down'>Vote Down</a>
-                </div>
+                <CommentVoteScore commentId={this.props.comments[comment].id} score={this.props.comments[comment].voteScore} postId={this.props.comments[comment].parentId} />
               </div>
             )
           : <p>No comments here...</p>

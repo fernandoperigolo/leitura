@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleIncreasePostVotes, handleDecreasePostVotes } from '../actions/posts'
 
-class VoteScore extends Component {
+class PostVoteScore extends Component {
   handleIncrease = (e) => {
     e.preventDefault()
 
@@ -30,4 +30,4 @@ class VoteScore extends Component {
   }
 }
 
-export default connect()(VoteScore)
+export default connect()(PostVoteScore)

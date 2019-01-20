@@ -96,3 +96,23 @@ export const decreasePostVotes = (id) =>
   .then(res => res.json())
   .then(data => data)
   .catch(error =>  console.warn(error))
+
+  export const increaseCommentVotes = (id) =>
+  fetch(`${api}/comments/${id}`, {
+    headers,
+    method: 'POST',
+    body: JSON.stringify({ option: 'upVote' })
+  })
+  .then(res => res.json())
+  .then(data => data)
+  .catch(error =>  console.warn(error))
+
+export const decreaseCommentVotes = (id) =>
+  fetch(`${api}/comments/${id}`, {
+    headers,
+    method: 'POST',
+    body: JSON.stringify({ option: 'downVote' })
+  })
+  .then(res => res.json())
+  .then(data => data)
+  .catch(error =>  console.warn(error))

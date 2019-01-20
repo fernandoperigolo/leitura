@@ -181,6 +181,12 @@ textarea {
   font-size: 16px;
   text-transform: uppercase;
 }
+button {
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
 
 /* Header */
 header {
@@ -265,10 +271,6 @@ nav a:hover {
   font-size: 12px;
   width: 115px;
   text-align: center;
-  cursor: pointer;
-}
-.post-vote:focus {
-  outline: none;
 }
 .post-vote-up {
   margin: 0 -20px 0 0;
@@ -299,6 +301,8 @@ nav a:hover {
   border: 1px solid #eee;
 }
 .comment-list-body {
+  padding: 0 0 10px;
+  border-bottom: 1px solid #eee;
   margin: 0 0 10px;
 }
 .comment-list-author {
@@ -309,6 +313,23 @@ nav a:hover {
 .comment-list-votescore {
   font-size: 14px;
   display: inline-block;
+}
+.comment-list-score {
+  margin: 0 5px;
+  font-weight: bold;
+}
+.comment-list-vote {
+  background: #fff;
+  border: 1px solid #666;
+  border-radius: 10px;
+}
+.comment-list-vote-up {
+  border-color: #d16ba5;
+  color: #d16ba5;
+}
+.comment-list-vote-down {
+  border-color: #9a9ae1;
+  color: #9a9ae1;
 }
 
 /* Footer */

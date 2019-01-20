@@ -73,7 +73,7 @@ export function handleDecreasePostVotes (postId) {
 
     return decreasePostVotesAPI(postId)
       .catch(error =>  {
-        dispatch(increasePostVotesAPI(postId))
+        dispatch(increasePostVotes(postId))
         console.warn(error)
       })
   }
