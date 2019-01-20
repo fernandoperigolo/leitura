@@ -55,7 +55,7 @@ class PostForm extends Component {
             />
           </p>
           <p>
-            <label htmlFor='category'>category</label>
+            <label htmlFor='category'>Category</label>
             <select onChange={this.handleChange} value={this.state.category} id='category' required>
               <option value="">Pick one here...</option>
               {Object.keys(this.props.categories).map(categorie =>
