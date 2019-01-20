@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import VoteScore from './VoteScore'
+import PostVoteScore from './PostVoteScore'
+import { formatDate } from '../utils/helpers'
 
 class PostListItem extends Component {
   render() {
@@ -11,10 +12,10 @@ class PostListItem extends Component {
         <h2><Link to={`/post/${post.id}`} className='tweet'>{post.title}</Link></h2>
         <p className='post-info'>
           <span className='post-author'>By: {post.author}</span>
-          <span className='post-datetime'>Date and Time: {post.timestamp}</span>
+          <span className='post-datetime'>When: {formatDate(post.timestamp)}</span>
           <span className='post-comment-count'>Comments: {post.commentCount}</span>
         </p>
-        <VoteScore postId={post.id} score={post.voteScore} />
+        <PostVoteScore postId={post.id} score={post.voteScore} />
       </div>
     )
   }

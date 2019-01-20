@@ -3,9 +3,10 @@ import Header from './Header'
 import Footer from './Footer'
 import CommentList from './CommentList'
 import CommentForm from './CommentForm'
-import VoteScore from './VoteScore'
+import PostVoteScore from './PostVoteScore'
 import { connect } from 'react-redux'
 import { handlePostData } from '../actions/views'
+import { formatDate } from '../utils/helpers'
 
 class Post extends Component {
   componentDidMount() {
@@ -24,7 +25,7 @@ class Post extends Component {
                 <h2>{post.title}</h2>
                 <p className='post-info'>
                   <span className='post-author'>By: {post.author}</span>
-                  <span className='post-datetime'>Date and Time: {post.timestamp}</span>
+                  <span className='post-datetime'>When: {formatDate(post.timestamp)}</span>
                   <span className='post-comment-count'>Comments: {post.commentCount}</span>
                 </p>
 
@@ -32,7 +33,7 @@ class Post extends Component {
                   {post.body}
                 </div>
 
-                <VoteScore postId={this.props.match.params.id} score={post.voteScore} />
+                <PostVoteScore postId={this.props.match.params.id} score={post.voteScore} />
 
                 <CommentList postId={this.props.match.params.id} />
                 <CommentForm />
