@@ -60,6 +60,7 @@ html {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 h1,
@@ -260,20 +261,28 @@ nav a:hover {
   line-height: 30px;
   border-radius: 30px;
   padding: 0 20px;
+  border: none;
+  font-size: 12px;
+  width: 115px;
+  text-align: center;
+  cursor: pointer;
+}
+.post-vote:focus {
+  outline: none;
 }
 .post-vote-up {
   margin: 0 -20px 0 0;
   padding-right: 33px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  background: #8BC34A;
+  background: #d16ba5;
 }
 .post-vote-down {
   margin: 0 0 0 -20px;
   padding-left: 33px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  background: #F44336;
+  background: #9a9ae1;
 }
 
 /* Comments */

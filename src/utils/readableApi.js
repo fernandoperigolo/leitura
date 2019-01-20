@@ -75,3 +75,24 @@ export const getPostData = (id) => Promise.all([
   categories,
   comments,
 }))
+.catch(error =>  console.warn(error))
+
+export const increasePostVotes = (id) =>
+  fetch(`${api}/posts/${id}`, {
+    headers,
+    method: 'POST',
+    body: JSON.stringify({ option: 'upVote' })
+  })
+  .then(res => res.json())
+  .then(data => data)
+  .catch(error =>  console.warn(error))
+
+export const decreasePostVotes = (id) =>
+  fetch(`${api}/posts/${id}`, {
+    headers,
+    method: 'POST',
+    body: JSON.stringify({ option: 'downVote' })
+  })
+  .then(res => res.json())
+  .then(data => data)
+  .catch(error =>  console.warn(error))
