@@ -6,7 +6,7 @@ class PostListItem extends Component {
   render() {
     const { post } = this.props
     return (
-      <div className='post'>
+      <div className='post-list-item'>
         <h2><Link to={`/post/${post.id}`} className='tweet'>{post.title}</Link></h2>
         <p className='post-info'>
           <span className='post-author'>By: {post.author}</span>

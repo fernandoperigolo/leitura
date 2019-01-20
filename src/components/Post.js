@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import CommentList from './CommentList'
+import CommentForm from './CommentForm'
 import { connect } from 'react-redux'
 import { handlePostData } from '../actions/views'
 
@@ -34,6 +36,9 @@ class Post extends Component {
                   <span className='post-score'>{post.voteScore}</span>
                   <a href='#' className='post-vote post-vote-down'>Vote Down</a>
                 </div>
+
+                <CommentList postId={this.props.match.params.id} />
+                <CommentForm />
               </div>
             : <p>Loading</p>}
 
@@ -46,9 +51,10 @@ class Post extends Component {
   }
 }
 
-function mapStateToProps ({posts}, props) {
+function mapStateToProps ({posts, comments}, props) {
   return {
-    post: posts[props.match.params.id]
+    post: posts[props.match.params.id],
+    comments: comments[props.match.params.id]
   }
 }
 

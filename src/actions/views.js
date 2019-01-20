@@ -1,6 +1,7 @@
 import { getHomeData, getCategoryData, getAllCategories, getPostData } from '../utils/readableApi'
 import { setAllCategories } from './categories'
 import { setAllPosts, addPost } from './posts'
+import { setAllCommentsForPost } from './comments'
 import { setAuthedUser } from './authedUser'
 
 const AUTHED_ID = 'thingone'
@@ -41,7 +42,7 @@ export function handlePostData (id) {
   return (dispatch, getState) => {
     const { posts } = getState()
 
-    return getPostData(id).then(({categories, post}) => {
+    return getPostData(id).then(({categories, post, comments}) => {
       dispatch(setAllCategories(categories))
       if(posts && posts[id]){
         // TODO: this post are already in state, update it
@@ -49,6 +50,7 @@ export function handlePostData (id) {
       } else {
         dispatch(addPost(post))
       }
+      dispatch(setAllCommentsForPost(comments))
       dispatch(setAuthedUser(AUTHED_ID))
     })
     .catch(error =>  console.warn(error))

@@ -4,7 +4,8 @@ class CommentForm extends Component {
   render() {
     return (
       <div>
-        CommentForm
+        <h3>Send a Comment</h3>
+        <p>Here the comment form</p>
       </div>
     )
   }
