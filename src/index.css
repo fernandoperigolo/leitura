@@ -249,6 +249,15 @@ nav a:hover {
   text-align: left;
   line-height: 26px;
 }
+.post-actions {
+  margin: 0 0 20px;
+}
+.post-actions button {
+  background: #fff;
+  border: 1px solid #666;
+  border-radius: 10px;
+  margin: 0 10px;
+}
 .post-score {
   display: inline-block;
   background: #03A9F4;

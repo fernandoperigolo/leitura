@@ -10,7 +10,6 @@ class PostNew extends Component {
     this.props.dispatch(handlePostNewData())
   }
   render() {
-    console.log('this.props ', this.props)
     return (
       <Fragment>
         <Header />
