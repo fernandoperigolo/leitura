@@ -20,25 +20,26 @@ class Post extends Component {
 
         <div className='wrap-content'>
           <div className='content-container'>
-            {this.props.post
-            ? <div className='post'>
-                <h2>{post.title}</h2>
-                <p className='post-info'>
-                  <span className='post-author'>By: {post.author}</span>
-                  <span className='post-datetime'>When: {formatDate(post.timestamp)}</span>
-                  <span className='post-comment-count'>Comments: {post.commentCount}</span>
-                </p>
+            {this.props.loading === 0
+              ? <div className='post'>
+                  <h2>{post.title}</h2>
+                  <p className='post-info'>
+                    <span className='post-author'>By: {post.author}</span>
+                    <span className='post-datetime'>When: {formatDate(post.timestamp)}</span>
+                    <span className='post-comment-count'>Comments: {post.commentCount}</span>
+                  </p>
 
-                <div className='post-content'>
-                  {post.body}
+                  <div className='post-content'>
+                    {post.body}
+                  </div>
+
+                  <PostVoteScore postId={this.props.match.params.id} score={post.voteScore} />
+
+                  <CommentList postId={this.props.match.params.id} />
+                  <CommentForm />
                 </div>
-
-                <PostVoteScore postId={this.props.match.params.id} score={post.voteScore} />
-
-                <CommentList postId={this.props.match.params.id} />
-                <CommentForm />
-              </div>
-            : <p>Loading</p>}
+              : <p>Loading...</p>
+            }
 
           </div>
         </div>
@@ -49,10 +50,11 @@ class Post extends Component {
   }
 }
 
-function mapStateToProps ({posts, comments}, props) {
+function mapStateToProps ({posts, comments, loadingBar}, props) {
   return {
     post: posts[props.match.params.id],
-    comments: comments[props.match.params.id]
+    comments: comments[props.match.params.id],
+    loading: loadingBar.default,
   }
 }
 
