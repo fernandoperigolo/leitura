@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import { handlePostData } from '../actions/views'
 import { handleDeletePost } from '../actions/posts'
 import { formatDate } from '../utils/helpers'
+import { Redirect } from 'react-router-dom'
 
 class Post extends Component {
   state = {
@@ -39,6 +40,10 @@ class Post extends Component {
 
   render() {
     const { post } = this.props
+    if (!post) {
+      return <Redirect to='/404' />
+    }
+
     return (
       <Fragment>
         <Header />

@@ -9,7 +9,7 @@ class Navigation extends Component {
         <ul>
           <li><NavLink to='/'>Home</NavLink></li>
           {Object.keys(this.props.categories).map(categorie =>
-            <li key={this.props.categories[categorie].path}><NavLink to={`/category/${this.props.categories[categorie].path}`}>{this.props.categories[categorie].name}</NavLink></li>
+            <li key={this.props.categories[categorie].path}><NavLink to={`/${this.props.categories[categorie].path}`}>{this.props.categories[categorie].name}</NavLink></li>
           )}
           <li><NavLink to='/post/new'>Create New Post</NavLink></li>
         </ul>

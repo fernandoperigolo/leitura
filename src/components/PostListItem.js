@@ -9,7 +9,7 @@ class PostListItem extends Component {
     const { post } = this.props
     return (
       <div className='post-list-item'>
-        <h2><Link to={`/post/${post.id}`} className='tweet'>{post.title}</Link></h2>
+        <h2><Link to={`/${post.category}/${post.id}`} className='tweet'>{post.title}</Link></h2>
         <p className='post-info'>
           <span className='post-author'>By: {post.author}</span>
           <span className='post-datetime'>When: {formatDate(post.timestamp)}</span>
