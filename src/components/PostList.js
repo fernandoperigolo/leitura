@@ -5,9 +5,12 @@ class PostList extends Component {
   render() {
     return (
       <Fragment>
-        {this.props.postsIds.map((id) => (
-          <PostListItem key={id} id={id} />
-        ))}
+        {this.props.postsIds.length > 0
+          ? this.props.postsIds.map((id) => (
+            <PostListItem key={id} id={id} />
+            ))
+          : <p>No posts here</p>
+        }
       </Fragment>
     )
   }
