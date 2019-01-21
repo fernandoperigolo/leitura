@@ -230,7 +230,15 @@ nav a:hover {
   border-bottom: 1px solid #ccc;
   text-align: center;
 }
+.post-list-item:last-child {
+  border-bottom: none;
+}
 
+.post-votescore {
+  height: 60px;
+  line-height: 52px;
+  font-size: 0;
+}
 .post .post-votescore {
   margin: 0 0 20px;
 }
@@ -261,13 +269,22 @@ nav a:hover {
 .post-score {
   display: inline-block;
   background: #03A9F4;
-  color: #fff;
-  font-weight: bold;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 30px;
+  background-image: linear-gradient(to right, #d16ba5, #9a9ae1);
+  width: 54px;
+  height: 54px;
+  border-radius: 40px;
   position: relative;
+  padding: 3px;
+  font-size: 18px;
+}
+.post-score-inner {
+  display: block;
+  background: #fff;
+  color: #03A9F4;
+  font-weight: bold;
+  width: 54px;
+  height: 54px;
+  border-radius: 40px;
 }
 .post-vote {
   display: inline-block;
