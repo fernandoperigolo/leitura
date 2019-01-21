@@ -126,7 +126,7 @@ export const decreaseCommentVotes = (id) =>
   .then(data => data)
   .catch(error =>  console.warn(error))
 
-  export const deleteComment = (id) =>
+export const deleteComment = (id) =>
   fetch(`${api}/comments/${id}`, {
     headers,
     method: 'DELETE',
@@ -134,3 +134,12 @@ export const decreaseCommentVotes = (id) =>
   .then(res => res.json())
   .then(data => data)
   .catch(error =>  console.warn(error))
+
+export const addComment = (commentData) => fetch(`${api}/comments`, {
+    headers,
+    method: 'POST',
+    body: JSON.stringify(commentData)
+  })
+  .then(res => res.json())
+  .then(data => data)
+  .catch(error => console.log(error))

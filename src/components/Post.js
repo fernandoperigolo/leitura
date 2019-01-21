@@ -20,7 +20,7 @@ class Post extends Component {
   handleEdit = (e) => {
     e.preventDefault()
 
-    const { dispatch, post } = this.props
+    //const { dispatch, post } = this.props
 
     //dispatch(handleEditPost(post.id))
   }
@@ -69,7 +69,7 @@ class Post extends Component {
                 <PostVoteScore postId={this.props.match.params.id} score={post.voteScore} />
 
                 <CommentList postId={this.props.match.params.id} />
-                <CommentForm />
+                <CommentForm postId={this.props.match.params.id} />
               </div>
             }
 

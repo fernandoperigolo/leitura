@@ -1,7 +1,8 @@
 import {
   SET_ALL_COMMENTS_FOR_POST,
   INCREASE_COMMENT_VOTES,
-  DECREASE_COMMENT_VOTES
+  DECREASE_COMMENT_VOTES,
+  ADD_COMMENT,
 } from '../actions/comments'
 
 export default function comments(state = {}, action) {
@@ -9,6 +10,16 @@ export default function comments(state = {}, action) {
     case SET_ALL_COMMENTS_FOR_POST:
       return {
         ...action.comments
+      }
+    case ADD_COMMENT :
+      return {
+        ...state,
+        [action.comment.parentId]: {
+          ...state[action.comment.parentId],
+          [action.comment.id]: {
+            ...action.comment
+          }
+        }
       }
     case INCREASE_COMMENT_VOTES:
       return {

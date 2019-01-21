@@ -112,6 +112,7 @@ h3 {
 form {
   max-width: 300px;
   margin: 0 auto;
+  text-align: left;
 }
 
 form label {
@@ -184,6 +185,7 @@ textarea {
 button {
   cursor: pointer;
 }
+input[type=submit],
 button:focus {
   outline: none;
 }
@@ -356,6 +358,10 @@ nav a:hover {
 .comment-list-vote-down {
   border-color: #9a9ae1;
   color: #9a9ae1;
+}
+
+.comment-form textarea {
+  height: 130px;
 }
 
 /* Footer */
