@@ -321,6 +321,12 @@ nav a:hover {
   background: #9a9ae1;
 }
 
+/* Category Order */
+.category-order {
+  text-align: center;
+  margin: 0 0 20px;
+}
+
 /* Comments */
 .comment-list {
   margin: 0 0 20px;

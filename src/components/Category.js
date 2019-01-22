@@ -35,7 +35,15 @@ class Category extends Component {
           <div className='content-container'>
             <h3>Category - {this.props.match.params.categoryPath}</h3>
             {this.props.loading === 0
-              ? <PostList postsIds={this.props.postsIds} />
+              ? <Fragment>
+                  <p>
+                    Order by:
+                    <button>Votes</button>
+                    <button>Comments</button>
+                    <button>Time</button>
+                  </p>
+                  <PostList postsIds={this.props.postsIds} />
+                </Fragment>
               : <p>Loading...</p>
             }
           </div>

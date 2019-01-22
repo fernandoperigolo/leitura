@@ -2,7 +2,7 @@ import { getHomeData, getCategoryData, getAllCategories, getPostData } from '../
 import { setAllCategories } from './categories'
 import { setAllPosts, addPost } from './posts'
 import { setAllCommentsForPost } from './comments'
-import { setAuthedUser } from './authedUser'
+import { setAuthedUser } from './user'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
 const AUTHED_ID = 'thingone'

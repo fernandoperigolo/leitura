@@ -59,7 +59,7 @@ class Post extends Component {
                   <span className='post-comment-count'>Comments: {post.commentCount}</span>
                 </p>
 
-                {this.props.authedUser === post.author
+                {this.props.user.userId === post.author
                   ? <div className='post-actions'>
                       <button onClick={this.handleEdit} className='button-action'>Edit Post</button>
                       <button onClick={this.handleDelete} className='button-action'>Delete Post</button>
@@ -94,12 +94,12 @@ class Post extends Component {
   }
 }
 
-function mapStateToProps ({posts, comments, loadingBar, authedUser}, props) {
+function mapStateToProps ({posts, comments, loadingBar, user}, props) {
   return {
     post: posts[props.match.params.id],
     comments: comments[props.match.params.id],
     loading: loadingBar.default,
-    authedUser,
+    user,
   }
 }
 

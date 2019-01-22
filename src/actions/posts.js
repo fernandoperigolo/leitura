@@ -48,13 +48,13 @@ function deletePost (postId) {
 
 export function handleAddPost (title, category, body) {
   return (dispatch, getState) => {
-    const { authedUser } = getState()
+    const { user } = getState()
     const postData = {
       id: Date.now().toString(36) + Math.random().toString(36).substr(2, 5),
       timestamp: Date.now(),
       title,
       body,
-      author: authedUser,
+      author: user.userId,
       category,
     }
 

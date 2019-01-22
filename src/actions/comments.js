@@ -51,12 +51,12 @@ function decreaseCommentVotes (commentId, postId) {
 
 export function handleAddComment (postId, body) {
   return (dispatch, getState) => {
-    const { authedUser } = getState()
+    const { user } = getState()
     const commentData = {
       id: Date.now().toString(36) + Math.random().toString(36).substr(2, 5),
       timestamp: Date.now(),
       body,
-      author: authedUser,
+      author: user.userId,
       parentId: postId,
     }
 

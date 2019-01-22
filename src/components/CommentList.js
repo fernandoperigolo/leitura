@@ -28,7 +28,7 @@ class CommentList extends Component {
 
                 <CommentVoteScore commentId={this.props.comments[comment].id} score={this.props.comments[comment].voteScore} postId={this.props.comments[comment].parentId} />
 
-                {this.props.authedUser === this.props.comments[comment].author
+                {this.props.user.userId === this.props.comments[comment].author
                   ? <div className='comment-actions'>
                       <button onClick={(e) => this.handleDelete(e, this.props.comments[comment])} className='button-action'>Delete Comment</button>
                     </div>
@@ -43,10 +43,10 @@ class CommentList extends Component {
   }
 }
 
-function mapStateToProps ({comments, authedUser}, {postId}) {
+function mapStateToProps ({comments, user}, {postId}) {
   return {
     comments: comments[postId],
-    authedUser,
+    user,
   }
 }
 
