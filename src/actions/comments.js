@@ -68,8 +68,8 @@ export function handleAddComment (postId, body) {
 
 export function handleDeleteComment (comment) {
   return (dispatch) => {
+    dispatch(deleteComment(comment))
     return deleteCommentAPI(comment.id)
-      .then((comment) => dispatch(deleteComment(comment)))
       .catch(error =>  {
         console.warn(error)
         addComment(comment)
