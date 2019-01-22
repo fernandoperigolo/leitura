@@ -2,10 +2,12 @@ import {
   increaseCommentVotes as increaseCommentVotesAPI,
   decreaseCommentVotes as decreaseCommentVotesAPI,
   addComment as addCommentAPI,
+  deleteComment as deleteCommentAPI,
 } from '../utils/readableApi'
 
 export const SET_ALL_COMMENTS_FOR_POST = 'SET_ALL_COMMENTS_FOR_POST'
 export const ADD_COMMENT = 'ADD_COMMENT'
+export const DELETE_COMMENT = 'DELETE_COMMENT'
 export const INCREASE_COMMENT_VOTES = 'INCREASE_COMMENT_VOTES'
 export const DECREASE_COMMENT_VOTES = 'DECREASE_COMMENT_VOTES'
 
@@ -20,6 +22,13 @@ export function setAllCommentsForPost (comments) {
 function addComment (comment) {
   return {
     type: ADD_COMMENT,
+    comment,
+  }
+}
+
+function deleteComment (comment) {
+  return {
+    type: DELETE_COMMENT,
     comment,
   }
 }
@@ -54,6 +63,17 @@ export function handleAddComment (postId, body) {
     return addCommentAPI(commentData)
       .then((comment) => dispatch(addComment(comment)))
       .catch(error =>  console.warn(error))
+  }
+}
+
+export function handleDeleteComment (comment) {
+  return (dispatch) => {
+    return deleteCommentAPI(comment.id)
+      .then((comment) => dispatch(deleteComment(comment)))
+      .catch(error =>  {
+        console.warn(error)
+        addComment(comment)
+      })
   }
 }
 

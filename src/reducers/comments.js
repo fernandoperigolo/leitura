@@ -3,6 +3,7 @@ import {
   INCREASE_COMMENT_VOTES,
   DECREASE_COMMENT_VOTES,
   ADD_COMMENT,
+  DELETE_COMMENT,
 } from '../actions/comments'
 
 export default function comments(state = {}, action) {
@@ -20,6 +21,19 @@ export default function comments(state = {}, action) {
             ...action.comment
           }
         }
+      }
+    case DELETE_COMMENT :
+      return {
+        ...state,
+        [action.comment.parentId]: Object.keys(state[action.comment.parentId]).reduce(
+          (newCommentsObj, currentCommentKey) =>
+            action.comment.id === currentCommentKey
+              ? newCommentsObj
+              : {
+                  ...newCommentsObj,
+                  [currentCommentKey]: state[action.comment.parentId][currentCommentKey],
+                }
+        ,{})
       }
     case INCREASE_COMMENT_VOTES:
       return {

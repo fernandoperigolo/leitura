@@ -40,7 +40,7 @@ class Post extends Component {
 
   render() {
     const { post } = this.props
-    if (!post) {
+    if (!post && this.props.loading === 0) {
       return <Redirect to='/404' />
     }
 
@@ -61,8 +61,8 @@ class Post extends Component {
 
                 {this.props.authedUser === post.author
                   ? <div className='post-actions'>
-                      <button onClick={this.handleEdit}>Edit Post</button>
-                      <button onClick={this.handleDelete}>Delete Post</button>
+                      <button onClick={this.handleEdit} className='button-action'>Edit Post</button>
+                      <button onClick={this.handleDelete} className='button-action'>Delete Post</button>
                     </div>
                   : null
                 }

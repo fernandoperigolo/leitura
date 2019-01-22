@@ -22,9 +22,9 @@ class CommentVoteScore extends Component {
   render() {
     return (
       <div className='comment-list-votescore'>
-        <button onClick={this.handleIncrease} className='comment-list-vote comment-list-vote-up'>Vote Up</button>
+        <button onClick={this.handleIncrease} className='button-action comment-list-vote comment-list-vote-up'>Vote Up</button>
         <span className='comment-list-score'>{this.props.score}</span>
-        <button onClick={this.handleDecrease} className='comment-list-vote comment-list-vote-down'>Vote Down</button>
+        <button onClick={this.handleDecrease} className='button-action comment-list-vote comment-list-vote-down'>Vote Down</button>
       </div>
     )
   }
