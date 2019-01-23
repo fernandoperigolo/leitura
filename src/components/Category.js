@@ -4,6 +4,8 @@ import Header from './Header'
 import Footer from './Footer'
 import { connect } from 'react-redux'
 import { handleCategoryData } from '../actions/views'
+import PostSort from './PostSort'
+import { sortPosts } from '../utils/helpers'
 
 class Category extends Component {
   state = {
@@ -36,12 +38,7 @@ class Category extends Component {
             <h3>Category - {this.props.match.params.categoryPath}</h3>
             {this.props.loading === 0
               ? <Fragment>
-                  <p>
-                    Order by:
-                    <button>Votes</button>
-                    <button>Comments</button>
-                    <button>Time</button>
-                  </p>
+                  <PostSort />
                   <PostList postsIds={this.props.postsIds} />
                 </Fragment>
               : <p>Loading...</p>
@@ -55,9 +52,11 @@ class Category extends Component {
   }
 }
 
-function mapStateToProps ({posts, loadingBar}) {
+function mapStateToProps ({posts, loadingBar, user}) {
+  const postsSortingBy = user.config.postsSortingBy
+  const postsIds = sortPosts(postsSortingBy, posts)
   return {
-    postsIds: Object.keys(posts),
+    postsIds,
     loading: loadingBar.default,
   }
 }

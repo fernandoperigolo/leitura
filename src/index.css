@@ -194,6 +194,10 @@ textarea {
   display: inline-block;
   vertical-align: top;
 }
+.button-action.active {
+  background: #666;
+  color: #fff;
+}
 button {
   cursor: pointer;
 }
@@ -325,6 +329,12 @@ nav a:hover {
 .category-order {
   text-align: center;
   margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 18px;
+}
+.category-order button {
+  margin: 0 0 0 10px;
+  text-transform: capitalize;
 }
 
 /* Comments */
