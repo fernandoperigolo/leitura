@@ -13,6 +13,7 @@ import { Redirect } from 'react-router-dom'
 class Post extends Component {
   state = {
     deletedFlag: false,
+    redirectFlag: false,
   }
   componentDidMount() {
     this.props.dispatch(handlePostData(this.props.match.params.id))
@@ -20,10 +21,9 @@ class Post extends Component {
 
   handleEdit = (e) => {
     e.preventDefault()
-
-    //const { dispatch, post } = this.props
-
-    //dispatch(handleEditPost(post.id))
+    this.setState(() => ({
+      redirectFlag: true,
+    }))
   }
 
   handleDelete = (e) => {
@@ -42,6 +42,10 @@ class Post extends Component {
     const { post } = this.props
     if (!post && this.props.loading === 0) {
       return <Redirect to='/404' />
+    }
+
+    if(this.state.redirectFlag === true) {
+      return <Redirect to={'/post/edit/' + this.props.post.id} />
     }
 
     return (
@@ -83,7 +87,7 @@ class Post extends Component {
             }
 
             {this.state.deletedFlag &&
-              <p>This post was deleted</p>
+              <p className='message-ok'>This post was deleted</p>
             }
           </div>
         </div>

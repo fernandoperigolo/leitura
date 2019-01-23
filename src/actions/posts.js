@@ -3,6 +3,7 @@ import {
   increasePostVotes as increasePostVotesAPI,
   decreasePostVotes as decreasePostVotesAPI,
   deletePost as deletePostAPI,
+  editPost as editPostAPI
 } from '../utils/readableApi'
 
 export const SET_ALL_POSTS = 'SET_ALL_POSTS'
@@ -60,6 +61,20 @@ export function handleAddPost (title, category, body) {
 
     return addPostAPI(postData)
       .then((post) => dispatch(addPost(post)))
+      .catch(error =>  console.warn(error))
+  }
+}
+
+export function handleEditPost (post) {
+  return (dispatch, getState) => {
+    const postData = {
+      ...post,
+      timestamp: Date.now(),
+    }
+
+    dispatch(addPost(postData))
+
+    return editPostAPI(postData)
       .catch(error =>  console.warn(error))
   }
 }

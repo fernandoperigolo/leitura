@@ -206,6 +206,15 @@ button:focus {
   outline: none;
 }
 
+.message-ok {
+  padding: 5px;
+  background: #1abc9c;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
 /* Header */
 header {
   background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);

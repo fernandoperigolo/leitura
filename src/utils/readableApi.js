@@ -52,19 +52,28 @@ export const addPost = (postData) => fetch(`${api}/posts`, {
   })
   .then(res => res.json())
   .then(data => data)
-  .catch(error => console.log(error))
+  .catch(error => console.warn(error))
+
+export const editPost = (commentData) => fetch(`${api}/posts/${commentData.id}`, {
+    headers,
+    method: 'PUT',
+    body: JSON.stringify(commentData)
+  })
+  .then(res => res.json())
+  .then(data => data)
+  .catch(error => console.warn(error))
 
 export const getPostById = (id) => fetch(`${api}/posts/${id}`, { headers })
   .then(res => res.json())
   .then(data => data)
-  .catch(error => console.log(error))
+  .catch(error => console.warn(error))
 
 export const getCommentsByPostId = (id) => fetch(`${api}/posts/${id}/comments`, { headers })
   .then(res => res.json())
   .then(data => ({
     [id]: normalizeObjectBy('id', data)
   }))
-  .catch(error => console.log(error))
+  .catch(error => console.warn(error))
 
 export const getPostData = (id) => Promise.all([
   getPostById(id),
@@ -142,7 +151,7 @@ export const addComment = (commentData) => fetch(`${api}/comments`, {
   })
   .then(res => res.json())
   .then(data => data)
-  .catch(error => console.log(error))
+  .catch(error => console.warn(error))
 
 export const editComment = (commentData) => fetch(`${api}/comments/${commentData.id}`, {
     headers,
@@ -151,4 +160,4 @@ export const editComment = (commentData) => fetch(`${api}/comments/${commentData
   })
   .then(res => res.json())
   .then(data => data)
-  .catch(error => console.log(error))
+  .catch(error => console.warn(error))

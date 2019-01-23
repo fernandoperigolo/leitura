@@ -45,6 +45,19 @@ export function handlePostNewData () {
   }
 }
 
+export function handlePostEditData () {
+  return (dispatch) => {
+    dispatch(showLoading())
+    return getHomeData().then(({categories, posts}) => {
+      dispatch(setAllCategories(categories))
+      dispatch(setAllPosts(posts))
+      dispatch(setAuthedUser(AUTHED_ID))
+      dispatch(hideLoading())
+    })
+    .catch(error =>  console.warn(error))
+  }
+}
+
 export function handlePostData (id) {
   return (dispatch, getState) => {
     dispatch(showLoading())
