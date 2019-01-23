@@ -393,6 +393,14 @@ nav a:hover {
   height: 130px;
 }
 
+.comment-edit-form {
+  max-width: 100%;
+  margin: 10px 0 0;
+}
+.comment-edit-form textarea {
+  height: 130px;
+}
+
 /* Footer */
 footer {
   text-align: center;

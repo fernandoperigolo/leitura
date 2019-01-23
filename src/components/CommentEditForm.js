@@ -1,11 +1,17 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { handleAddComment } from '../actions/comments'
+import { handleEditComment } from '../actions/comments'
 
-class CommentForm extends Component {
+class CommentEditForm extends Component {
   state = {
-    body: '',
+    comment: '',
     submitedFlag: false,
+  }
+
+  componentDidMount() {
+    this.setState(() => ({
+      comment: this.props.comment
+    }))
   }
 
   handleChange = (e) => {
@@ -13,7 +19,10 @@ class CommentForm extends Component {
     const value = e.target.value
 
     this.setState(() => ({
-      [stateItem]: value
+      comment: {
+        ...this.state.comment,
+        [stateItem]: value
+      }
     }))
 
     if(e.target.value) {
@@ -26,10 +35,7 @@ class CommentForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    this.props.dispatch(handleAddComment(
-      this.props.postId,
-      this.state.body,
-    ))
+    this.props.dispatch(handleEditComment(this.state.comment))
 
     this.setState(() => ({
       body: '',
@@ -40,14 +46,12 @@ class CommentForm extends Component {
   render() {
     return (
       <Fragment>
-        <h3>Send a Comment</h3>
-
-        <form onSubmit={this.handleSubmit} className='comment-form'>
+        <form onSubmit={this.handleSubmit} className='comment-edit-form'>
           <p>
             <label htmlFor='body'>Content</label>
             <textarea
-              placeholder="Tell me what you think"
-              value={this.state.body}
+              placeholder="You are editing this comment"
+              value={this.state.comment.body}
               onChange={this.handleChange}
               className='textarea'
               id='body'
@@ -55,13 +59,13 @@ class CommentForm extends Component {
             />
           </p>
           {this.state.submitedFlag &&
-            <p className='message-ok'>Your new comment was saved.</p>
+            <p className='message-ok'>Your comment was saved.</p>
           }
-          <p><input type="submit" className='button' value='Send Comment' /></p>
+          <p><input type="submit" className='button' value='Save Comment' /></p>
         </form>
       </Fragment>
     )
   }
 }
 
-export default connect()(CommentForm)
+export default connect()(CommentEditForm)

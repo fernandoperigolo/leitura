@@ -3,6 +3,7 @@ import {
   decreaseCommentVotes as decreaseCommentVotesAPI,
   addComment as addCommentAPI,
   deleteComment as deleteCommentAPI,
+  editComment as editCommentAPI
 } from '../utils/readableApi'
 
 export const SET_ALL_COMMENTS_FOR_POST = 'SET_ALL_COMMENTS_FOR_POST'
@@ -62,6 +63,16 @@ export function handleAddComment (postId, body) {
 
     return addCommentAPI(commentData)
       .then((comment) => dispatch(addComment(comment)))
+      .catch(error =>  console.warn(error))
+  }
+}
+
+export function handleEditComment (comment) {
+  return (dispatch, getState) => {
+    comment.timestamp = Date.now()
+    dispatch(addComment(comment))
+
+    return editCommentAPI(comment)
       .catch(error =>  console.warn(error))
   }
 }
