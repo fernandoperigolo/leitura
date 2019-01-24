@@ -6,6 +6,8 @@ import {
   editComment as editCommentAPI
 } from '../utils/readableApi'
 
+import { increasePostCommentCount, decreasePostCommentCount} from './posts'
+
 export const SET_ALL_COMMENTS_FOR_POST = 'SET_ALL_COMMENTS_FOR_POST'
 export const ADD_COMMENT = 'ADD_COMMENT'
 export const DELETE_COMMENT = 'DELETE_COMMENT'
@@ -62,7 +64,10 @@ export function handleAddComment (postId, body) {
     }
 
     return addCommentAPI(commentData)
-      .then((comment) => dispatch(addComment(comment)))
+      .then((comment) => {
+        dispatch(addComment(comment))
+        dispatch(increasePostCommentCount(comment.parentId))
+      })
       .catch(error =>  console.warn(error))
   }
 }
@@ -80,10 +85,12 @@ export function handleEditComment (comment) {
 export function handleDeleteComment (comment) {
   return (dispatch) => {
     dispatch(deleteComment(comment))
+    dispatch(decreasePostCommentCount(comment.parentId))
     return deleteCommentAPI(comment.id)
       .catch(error =>  {
         console.warn(error)
         addComment(comment)
+        dispatch(increasePostCommentCount(comment.parentId))
       })
   }
 }

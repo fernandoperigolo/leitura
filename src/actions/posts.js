@@ -11,6 +11,8 @@ export const ADD_POST = 'ADD_POST'
 export const DELETE_POST = 'DELETE_POST'
 export const INCREASE_POST_VOTES = 'INCREASE_POST_VOTES'
 export const DECREASE_POST_VOTES = 'DECREASE_POST_VOTES'
+export const INCREASE_POST_COMMENT_COUNT = 'INCREASE_POST_COMMENT_COUNT'
+export const DECREASE_POST_COMMENT_COUNT = 'DECREASE_POST_COMMENT_COUNT'
 
 export function setAllPosts (posts) {
   return {
@@ -36,6 +38,20 @@ function increasePostVotes (postId) {
 function decreasePostVotes (postId) {
   return {
     type: DECREASE_POST_VOTES,
+    postId,
+  }
+}
+
+export function increasePostCommentCount (postId) {
+  return {
+    type: INCREASE_POST_COMMENT_COUNT,
+    postId,
+  }
+}
+
+export function decreasePostCommentCount (postId) {
+  return {
+    type: DECREASE_POST_COMMENT_COUNT,
     postId,
   }
 }
