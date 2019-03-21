@@ -1,5 +1,5 @@
 ## Readable - A React and Redux project to Udacity React Nanodegree course
-This project is part of Udacity React Nanodegree course.
+This project is part of Udacity React Nanodegree course. You can see a demo running here, http://leitura.surge.sh/
 
 ## Installation
 Two easy steps to run this project.
