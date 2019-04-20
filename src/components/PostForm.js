@@ -22,11 +22,11 @@ class PostForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    this.props.dispatch(handleAddPost(
+    this.props.handleAddPost(
       this.state.title,
       this.state.category,
       this.state.body,
-    ))
+    )
 
     this.setState(() => ({
       title: '',
@@ -81,10 +81,14 @@ class PostForm extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  handleAddPost,
+}
+
 function mapStateToProps ({categories}) {
   return {
     categories
   }
 }
 
-export default connect(mapStateToProps)(PostForm)
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm)

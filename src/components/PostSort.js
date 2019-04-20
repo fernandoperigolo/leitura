@@ -6,9 +6,7 @@ class PostSort extends Component {
   handleSetSorting = (e, sort) => {
     e.preventDefault()
 
-    const { dispatch } = this.props
-
-    dispatch(setSortingConfig(sort))
+    this.props.setSortingConfig(sort)
   }
 
   render() {
@@ -23,6 +21,10 @@ class PostSort extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  setSortingConfig,
+}
+
 function mapStateToProps ({user}) {
   const postsSortingBy = user.config.postsSortingBy
   return {
@@ -30,4 +32,4 @@ function mapStateToProps ({user}) {
   }
 }
 
-export default connect(mapStateToProps)(PostSort)
+export default connect(mapStateToProps, mapDispatchToProps)(PostSort)

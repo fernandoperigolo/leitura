@@ -7,7 +7,7 @@ import { handlePostNewData } from '../actions/views'
 
 class PostNew extends Component {
   componentDidMount() {
-    this.props.dispatch(handlePostNewData())
+    this.props.handlePostNewData()
   }
   render() {
     return (
@@ -30,10 +30,14 @@ class PostNew extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  handlePostNewData,
+}
+
 function mapStateToProps ({loadingBar}) {
   return {
     loading: loadingBar.default,
   }
 }
 
-export default connect(mapStateToProps)(PostNew)
+export default connect(mapStateToProps, mapDispatchToProps)(PostNew)

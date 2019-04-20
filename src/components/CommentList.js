@@ -10,8 +10,7 @@ class CommentList extends Component {
   }
   handleDelete = (e, comment) => {
     e.preventDefault()
-    const { dispatch } = this.props
-    dispatch(handleDeleteComment(comment))
+    this.props.handleDeleteComment(comment)
   }
 
   handleToggleEdit = (e, commentId) => {
@@ -57,6 +56,10 @@ class CommentList extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  handleDeleteComment,
+}
+
 function mapStateToProps ({comments, user}, {postId}) {
   return {
     comments: comments[postId],
@@ -64,4 +67,4 @@ function mapStateToProps ({comments, user}, {postId}) {
   }
 }
 
-export default connect(mapStateToProps)(CommentList)
+export default connect(mapStateToProps, mapDispatchToProps)(CommentList)

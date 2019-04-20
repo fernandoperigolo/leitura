@@ -7,7 +7,7 @@ import { handlePostEditData } from '../actions/views'
 
 class PostEdit extends Component {
   componentDidMount() {
-    this.props.dispatch(handlePostEditData())
+    this.props.handlePostEditData()
   }
   render() {
     return (
@@ -30,6 +30,10 @@ class PostEdit extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  handlePostEditData,
+}
+
 function mapStateToProps ({loadingBar, posts}, props) {
   return {
     loading: loadingBar.default,
@@ -37,4 +41,4 @@ function mapStateToProps ({loadingBar, posts}, props) {
   }
 }
 
-export default connect(mapStateToProps)(PostEdit)
+export default connect(mapStateToProps, mapDispatchToProps)(PostEdit)

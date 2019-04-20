@@ -20,7 +20,7 @@ class PostEditForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    this.props.dispatch(handleEditPost(this.state))
+    this.props.handleEditPost(this.state)
 
     this.setState(() => ({
       submitedFlag: true,
@@ -72,10 +72,14 @@ class PostEditForm extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  handleEditPost,
+}
+
 function mapStateToProps ({categories}) {
   return {
     categories
   }
 }
 
-export default connect(mapStateToProps)(PostEditForm)
+export default connect(mapStateToProps, mapDispatchToProps)(PostEditForm)

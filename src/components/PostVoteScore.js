@@ -6,17 +6,17 @@ class PostVoteScore extends Component {
   handleIncrease = (e) => {
     e.preventDefault()
 
-    const { dispatch, postId } = this.props
+    const { handleIncreasePostVotes, postId } = this.props
 
-    dispatch(handleIncreasePostVotes(postId))
+    handleIncreasePostVotes(postId)
   }
 
   handleDecrease = (e) => {
     e.preventDefault()
 
-    const { dispatch, postId } = this.props
+    const { handleDecreasePostVotes, postId } = this.props
 
-    dispatch(handleDecreasePostVotes(postId))
+    handleDecreasePostVotes(postId)
   }
 
   render() {
@@ -34,4 +34,9 @@ class PostVoteScore extends Component {
   }
 }
 
-export default connect()(PostVoteScore)
+const mapDispatchToProps = {
+  handleIncreasePostVotes,
+  handleDecreasePostVotes,
+}
+
+export default connect(null, mapDispatchToProps)(PostVoteScore)

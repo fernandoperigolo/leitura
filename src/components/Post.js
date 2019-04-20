@@ -16,7 +16,7 @@ class Post extends Component {
     redirectFlag: false,
   }
   componentDidMount() {
-    this.props.dispatch(handlePostData(this.props.match.params.id))
+    this.props.handlePostData(this.props.match.params.id)
   }
 
   handleEdit = (e) => {
@@ -29,9 +29,9 @@ class Post extends Component {
   handleDelete = (e) => {
     e.preventDefault()
 
-    const { dispatch, post } = this.props
+    const { handleDeletePost, post } = this.props
 
-    dispatch(handleDeletePost(post.id))
+    handleDeletePost(post.id)
 
     this.setState(() => ({
       deletedFlag: true,
@@ -98,6 +98,11 @@ class Post extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  handlePostData,
+  handleDeletePost,
+}
+
 function mapStateToProps ({posts, comments, loadingBar, user}, props) {
   return {
     post: posts[props.match.params.id],
@@ -107,4 +112,4 @@ function mapStateToProps ({posts, comments, loadingBar, user}, props) {
   }
 }
 
-export default connect(mapStateToProps)(Post)
+export default connect(mapStateToProps, mapDispatchToProps)(Post)

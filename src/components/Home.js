@@ -9,7 +9,7 @@ import { sortPosts } from '../utils/helpers'
 
 class Home extends Component {
   componentDidMount() {
-    this.props.dispatch(handleHomeData())
+    this.props.handleHomeData()
   }
 
   render() {
@@ -36,6 +36,10 @@ class Home extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  handleHomeData,
+}
+
 function mapStateToProps ({posts, loadingBar, user}) {
   const postsSortingBy = user.config.postsSortingBy
   const postsIds = sortPosts(postsSortingBy, posts)
@@ -47,4 +51,4 @@ function mapStateToProps ({posts, loadingBar, user}) {
   }
 }
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

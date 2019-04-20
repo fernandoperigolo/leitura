@@ -26,10 +26,10 @@ class CommentForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    this.props.dispatch(handleAddComment(
+    this.props.handleAddComment(
       this.props.postId,
       this.state.body,
-    ))
+    )
 
     this.setState(() => ({
       body: '',
@@ -64,4 +64,8 @@ class CommentForm extends Component {
   }
 }
 
-export default connect()(CommentForm)
+const mapDispatchToProps = {
+  handleAddComment,
+}
+
+export default connect(null, mapDispatchToProps)(CommentForm)

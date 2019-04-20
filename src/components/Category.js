@@ -16,7 +16,7 @@ class Category extends Component {
     this.setState(() => ({
       currentCategory: this.props.match.params.categoryPath
     }))
-    this.props.dispatch(handleCategoryData(this.props.match.params.categoryPath))
+    this.props.handleCategoryData(this.props.match.params.categoryPath)
   }
 
   componentDidUpdate() {
@@ -24,7 +24,7 @@ class Category extends Component {
       this.setState(() => ({
         currentCategory: this.props.match.params.categoryPath
       }))
-      this.props.dispatch(handleCategoryData(this.props.match.params.categoryPath))
+      this.props.handleCategoryData(this.props.match.params.categoryPath)
     }
   }
 
@@ -52,6 +52,10 @@ class Category extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  handleCategoryData,
+}
+
 function mapStateToProps ({posts, loadingBar, user}) {
   const postsSortingBy = user.config.postsSortingBy
   const postsIds = sortPosts(postsSortingBy, posts)
@@ -61,4 +65,4 @@ function mapStateToProps ({posts, loadingBar, user}) {
   }
 }
 
-export default connect(mapStateToProps)(Category)
+export default connect(mapStateToProps, mapDispatchToProps)(Category)

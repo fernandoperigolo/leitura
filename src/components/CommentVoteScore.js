@@ -6,17 +6,17 @@ class CommentVoteScore extends Component {
   handleIncrease = (e) => {
     e.preventDefault()
 
-    const { dispatch, commentId, postId } = this.props
+    const { handleIncreaseCommentVotes, commentId, postId } = this.props
 
-    dispatch(handleIncreaseCommentVotes(commentId, postId))
+    handleIncreaseCommentVotes(commentId, postId)
   }
 
   handleDecrease = (e) => {
     e.preventDefault()
 
-    const { dispatch, commentId, postId } = this.props
+    const { handleDecreaseCommentVotes, commentId, postId } = this.props
 
-    dispatch(handleDecreaseCommentVotes(commentId, postId))
+    handleDecreaseCommentVotes(commentId, postId)
   }
 
   render() {
@@ -30,4 +30,9 @@ class CommentVoteScore extends Component {
   }
 }
 
-export default connect()(CommentVoteScore)
+const mapDispatchToProps = {
+  handleIncreaseCommentVotes,
+  handleDecreaseCommentVotes,
+}
+
+export default connect(null, mapDispatchToProps)(CommentVoteScore)
